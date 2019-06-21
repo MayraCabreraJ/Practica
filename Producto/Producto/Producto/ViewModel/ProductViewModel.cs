@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Producto.ViewModel
 {
-    class ProductViewModel
+   public class ProductViewModel
     {
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 namespace Producto.ViewModel
 {
-    class MainViewModel
+    public class MainViewModel
     {
         #region Properties
-        public string Token { get; set; }
-        public string TokenType { get; set; }
+ 
         #endregion
 
         #region ViewModels
