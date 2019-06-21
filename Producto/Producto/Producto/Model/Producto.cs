@@ -6,17 +6,20 @@ namespace Producto.Model
 {
     
    using System.ComponentModel.DataAnnotations;
-
-   public class Producto
+    using Newtonsoft.Json;
+    public class Producto
         {
             [Key]
-            public int ProductId { get; set; }
+        [JsonProperty(PropertyName = "productId")]
+        public int ProductId { get; set; }
 
             [Required]
-            [Display(Name = "Product Name")]
-            public string Name { get; set; }
 
-            public double Price { get; set; }
+        [JsonProperty(PropertyName = "name")]
+          public string Name { get; set; }
+
+        [JsonProperty(PropertyName = "price")]
+        public double Price { get; set; }
         }
     }
 

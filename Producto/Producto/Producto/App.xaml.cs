@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Producto.View;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace Producto
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ProductViewModel();
         }
 
         protected override void OnStart()

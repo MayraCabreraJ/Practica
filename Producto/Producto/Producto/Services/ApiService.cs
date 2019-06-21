@@ -15,79 +15,7 @@ namespace Producto.Services
         
     public class ApiService
     {
-        public async Task<Response> CheckConnection()
-        {
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = "Please turn on your internet settings.",
-                };
-            }
-
-
-            bool isReachable = VerifyConnectionURL("https://productosi220.azurewebsites.net/");
-            if (!isReachable)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = "Check you internet connection.",
-                };
-            }
-
-            return new Response
-            {
-                IsSuccess = true,
-                Message = "Ok",
-            };
-        }
-
-
-        public bool VerifyConnectionURL(string mURL)
-        {
-            try
-            {
-                System.Net.WebRequest Peticion = System.Net.WebRequest.Create(mURL);
-                System.Net.WebResponse Respuesta = Peticion.GetResponse();
-                return true;
-            }
-            catch (System.Net.WebException ex)
-            {
-                if (ex.Status == System.Net.WebExceptionStatus.NameResolutionFailure)
-                {
-                    return false;
-                }
-                return false;
-            }
-        }
-
-        public async Task<TokenResponse> GetToken(
-            string urlBase,
-            string username,
-            string password)
-        {
-            try
-            {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri(urlBase);
-                StringContent head = new StringContent(string.Format(
-                    "grant_type=password&username={0}&password={1}",
-                    username, password),
-                    Encoding.UTF8, "application/x-www-form-urlencoded");
-                HttpResponseMessage response = await client.PostAsync("Token", head);
-                var resultJSON = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<TokenResponse>(
-                resultJSON);
-                return result;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
+       
         public async Task<Response> Get<T>(
             string urlBase,
             string servicePrefix,
@@ -162,7 +90,7 @@ namespace Producto.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response
+                       return new Response
                     {
                         IsSuccess = false,
                         Message = response.StatusCode.ToString(),

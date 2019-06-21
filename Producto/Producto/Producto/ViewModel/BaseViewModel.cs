@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace Producto.ViewModel
 {
@@ -10,6 +8,8 @@ namespace Producto.ViewModel
 
     public class BaseViewModel : INotifyPropertyChanged
     {
+
+         
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

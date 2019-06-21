@@ -22,7 +22,7 @@ namespace Producto.ViewModel
         #endregion
 
         #region Singleton
-        private static MainViewModel instance;
+        public static MainViewModel instance;
 
         public static MainViewModel GetInstance()
         {
